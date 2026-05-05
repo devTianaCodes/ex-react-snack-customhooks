@@ -1,7 +1,8 @@
 import useSwitch from './useSwitch'
 import useDate from './useDate'
 import useCustomPointer from './useCustomPointer'
-import useKeyPress from './useKeyPress.jsx'
+import useKeyPress from './useKeyPress'
+import './App.css'
 
 
 
@@ -33,14 +34,12 @@ function DateExample() {
 }
 
 
-function CustomPointerExample() {
-  const customPointer = useCustomPointer('🔥')
 
+function CustomPointerExample() {
   return (
     <section>
       <h1>Snack 3: useCustomPointer()</h1>
       <p>Sposta il mouse per vedere il cursore personalizzato!</p>
-      {customPointer}
     </section>
   )
 }
@@ -53,7 +52,7 @@ function KeyPressExample() {
   return (
     <section>
       <h1>Bonus: useKeyPress()</h1>
-      <p>Tieni premuto "Enter" per testare il custom hook</p>
+      <p>Tieni premuto &quot;Enter&quot; per testare il custom hook</p>
       <p>{isEnterPressed ? 'Enter premuto! ✅' : 'Aspettando input... ⌨️'}</p>
     </section>
   )
@@ -63,13 +62,18 @@ function KeyPressExample() {
 
 
 function App() {
+  const customPointer = useCustomPointer('🔥')
+
   return (
-    <div>
-      <SwitchExample />
-      <DateExample />
-      <CustomPointerExample />
-      <KeyPressExample />
-    </div>
+    <>
+      <div className="page">
+        <SwitchExample />
+        <DateExample />
+        <CustomPointerExample />
+        <KeyPressExample />
+      </div>
+      <div className="custom-pointer-layer">{customPointer}</div>
+    </>
   )
 }
 

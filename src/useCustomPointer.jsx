@@ -23,7 +23,6 @@ export default function useCustomPointer(component) {
         position: 'fixed',
         left: position.x,
         top: position.y,
-        cursor: 'none',
       }}
     >
       {component}
