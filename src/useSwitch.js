@@ -1,7 +1,7 @@
 import { useState } from 'react'
 
-function useSwitch() {
-  const [isOn, setIsOn] = useState(false)
+function useSwitch(initialValue = false) {
+  const [isOn, setIsOn] = useState(initialValue)
 
   const toggle = () => {
     setIsOn((currentValue) => !currentValue)
