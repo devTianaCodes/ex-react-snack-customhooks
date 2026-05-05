@@ -1,6 +1,11 @@
 import useSwitch from './useSwitch'
 import useDate from './useDate'
 import useCustomPointer from './useCustomPointer'
+import useKeyPress from './useKeyPress.jsx'
+
+
+
+
 
 function SwitchExample() {
   const [isOn, toggle] = useSwitch()
@@ -14,6 +19,8 @@ function SwitchExample() {
   )
 }
 
+
+
 function DateExample() {
   const currentDate = useDate()
 
@@ -24,6 +31,7 @@ function DateExample() {
     </section>
   )
 }
+
 
 function CustomPointerExample() {
   const customPointer = useCustomPointer('🔥')
@@ -37,12 +45,30 @@ function CustomPointerExample() {
   )
 }
 
+
+
+function KeyPressExample() {
+  const isEnterPressed = useKeyPress('Enter')
+
+  return (
+    <section>
+      <h1>Bonus: useKeyPress()</h1>
+      <p>Tieni premuto "Enter" per testare il custom hook</p>
+      <p>{isEnterPressed ? 'Enter premuto! ✅' : 'Aspettando input... ⌨️'}</p>
+    </section>
+  )
+}
+
+
+
+
 function App() {
   return (
     <div>
       <SwitchExample />
       <DateExample />
       <CustomPointerExample />
+      <KeyPressExample />
     </div>
   )
 }
